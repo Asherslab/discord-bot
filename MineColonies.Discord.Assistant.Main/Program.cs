@@ -1,40 +1,30 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
-using Discord;
-using Discord.Commands;
 using Discord.WebSocket;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MineColonies.Discord.Assistant.Main
 {
     internal class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
             => new Program().MainAsync().GetAwaiter().GetResult();
 
-        private DiscordSocketClient _client;
+        private readonly IServiceCollection _serviceCollection = new ServiceCollection();
 
         private async Task MainAsync()
         {
-            _client = new DiscordSocketClient();
-            _client.Log += Log;
+            Startup.ConfigureModules(new List<string> {"test", "auto-role"});
+            await Startup.ConfigureServices(_serviceCollection);
+            await using ServiceProvider serviceProvider = _serviceCollection.BuildServiceProvider();
 
-            string token = Environment.GetEnvironmentVariable("DISCORD_KEY");
+            DiscordSocketClient client = serviceProvider.GetRequiredService<DiscordSocketClient>();
 
-            await _client.LoginAsync(TokenType.Bot, token);
-            await _client.StartAsync();
+            await Startup.ConfigureClient(serviceProvider, client);
+            await client.StartAsync();
 
-            _client.Ready += async () =>
-            {
-                Console.WriteLine("Bot is connected!");
-            };
-
-            await Task.Delay(-1);
-        }
-
-        private Task Log(LogMessage msg)
-        {
-            Console.WriteLine(msg.ToString());
-            return Task.CompletedTask;
+            await Task.Delay(Timeout.Infinite);
         }
     }
 }

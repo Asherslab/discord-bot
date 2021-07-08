@@ -4,10 +4,18 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
       <PackageReference Include="Discord.Net" Version="2.3.1" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\MineColonies.Discord.Assistant.Interfaces\MineColonies.Discord.Assistant.Interfaces.csproj" />
+      <ProjectReference Include="..\Modules\MineColonies.Discord.Assistant.Module.AutoRole\MineColonies.Discord.Assistant.Module.AutoRole.csproj" />
+      <ProjectReference Include="..\Modules\MineColonies.Discord.Assistant.Module.RoleKeep\MineColonies.Discord.Assistant.Module.RoleKeep.csproj" />
     </ItemGroup>
 
 </Project>

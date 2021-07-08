@@ -67,8 +67,8 @@ namespace MineColonies.Discord.RoleKeeper.Handlers
             foreach (IRole role in user.Guild.Roles.Where(role =>
                 Config.Instance.RolesToKeep.Contains(role.Id) || Config.Instance.AutoRoles.Contains(role.Id)))
             {
-                if ((Config.Instance.KeptRolesToUsers.ContainsKey(role.Id) &&
-                     Config.Instance.KeptRolesToUsers[role.Id].Contains(user.Id)) ||
+                if (Config.Instance.KeptRolesToUsers.ContainsKey(role.Id) &&
+                     Config.Instance.KeptRolesToUsers[role.Id].Contains(user.Id) ||
                     Config.Instance.AutoRoles.Contains(role.Id))
                 {
                     await user.AddRoleAsync(role);

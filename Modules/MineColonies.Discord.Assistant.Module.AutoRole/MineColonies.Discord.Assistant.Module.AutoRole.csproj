@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\MineColonies.Discord.Assistant.BaseClasses\MineColonies.Discord.Assistant.BaseClasses.csproj" />
+      <ProjectReference Include="..\..\MineColonies.Discord.Assistant.Interfaces\MineColonies.Discord.Assistant.Interfaces.csproj" />
+    </ItemGroup>
+
+</Project>

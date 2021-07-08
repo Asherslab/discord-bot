@@ -4,6 +4,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.RoleKeeper", "MineColonies.Discord.RoleKeeper\MineColonies.Discord.RoleKeeper.csproj", "{5C4C3107-C48C-429D-BB71-9E2E1DE35007}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Interfaces", "MineColonies.Discord.Assistant.Interfaces\MineColonies.Discord.Assistant.Interfaces.csproj", "{DC9E122C-B221-40C2-9EA0-401F81DD4F19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Module.AutoRole", "Modules\MineColonies.Discord.Assistant.Module.AutoRole\MineColonies.Discord.Assistant.Module.AutoRole.csproj", "{C335B0B7-447F-4B17-999D-BF8359F2FDC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Module.RoleKeep", "Modules\MineColonies.Discord.Assistant.Module.RoleKeep\MineColonies.Discord.Assistant.Module.RoleKeep.csproj", "{31D42586-2F7F-4B49-8AAA-6E233E56BD23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.BaseClasses", "MineColonies.Discord.Assistant.BaseClasses\MineColonies.Discord.Assistant.BaseClasses.csproj", "{FA0C7133-5756-457B-B52F-611326777A28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Module.Leveling", "Modules\MineColonies.Discord.Assistant.Module.Leveling\MineColonies.Discord.Assistant.Module.Leveling.csproj", "{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Disqord.Assistant", "MineColonies.Disqord.Assistant\MineColonies.Disqord.Assistant.csproj", "{872CCF2B-9921-48EC-91A2-6EAAA37654DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +32,34 @@ Global
 		{5C4C3107-C48C-429D-BB71-9E2E1DE35007}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C4C3107-C48C-429D-BB71-9E2E1DE35007}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C4C3107-C48C-429D-BB71-9E2E1DE35007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC9E122C-B221-40C2-9EA0-401F81DD4F19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC9E122C-B221-40C2-9EA0-401F81DD4F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC9E122C-B221-40C2-9EA0-401F81DD4F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC9E122C-B221-40C2-9EA0-401F81DD4F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C335B0B7-447F-4B17-999D-BF8359F2FDC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C335B0B7-447F-4B17-999D-BF8359F2FDC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C335B0B7-447F-4B17-999D-BF8359F2FDC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C335B0B7-447F-4B17-999D-BF8359F2FDC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31D42586-2F7F-4B49-8AAA-6E233E56BD23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31D42586-2F7F-4B49-8AAA-6E233E56BD23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31D42586-2F7F-4B49-8AAA-6E233E56BD23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31D42586-2F7F-4B49-8AAA-6E233E56BD23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA0C7133-5756-457B-B52F-611326777A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA0C7133-5756-457B-B52F-611326777A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA0C7133-5756-457B-B52F-611326777A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA0C7133-5756-457B-B52F-611326777A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C335B0B7-447F-4B17-999D-BF8359F2FDC1} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
+		{31D42586-2F7F-4B49-8AAA-6E233E56BD23} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
+		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
 	EndGlobalSection
 EndGlobal
