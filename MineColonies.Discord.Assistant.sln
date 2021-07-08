@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Module.Leveling", "Modules\MineColonies.Discord.Assistant.Module.Leveling\MineColonies.Discord.Assistant.Module.Leveling.csproj", "{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Disqord.Assistant", "MineColonies.Disqord.Assistant\MineColonies.Disqord.Assistant.csproj", "{872CCF2B-9921-48EC-91A2-6EAAA37654DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Remora", "MineColonies.Discord.Assistant.Remora\MineColonies.Discord.Assistant.Remora.csproj", "{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,10 +52,10 @@ Global
 		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96}.Release|Any CPU.Build.0 = Release|Any CPU
-		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{872CCF2B-9921-48EC-91A2-6EAAA37654DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C335B0B7-447F-4B17-999D-BF8359F2FDC1} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
