@@ -3,16 +3,16 @@ WORKDIR /app
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["MineColonies.Dicord.Assistant/MineColonies.Dicord.Assistant.csproj", "MineColonies.Dicord.Assistant/"]
-RUN dotnet restore "MineColonies.Dicord.Assistant/MineColonies.Dicord.Assistant.csproj"
+COPY ["MineColonies.Discord.Assistant.Main/MineColonies.Discord.Assistant.Main.csproj", "MineColonies.Discord.Assistant.Main/"]
+RUN dotnet restore "MineColonies.Discord.Assistant.Main/MineColonies.Discord.Assistant.Main.csproj"
 COPY . .
-WORKDIR "/src/MineColonies.Dicord.Assistant"
-RUN dotnet build "MineColonies.Dicord.Assistant.csproj" -c Release -o /app/build
+WORKDIR "/src/MineColonies.Discord.Assistant.Main"
+RUN dotnet build "MineColonies.Discord.Assistant.Main.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "MineColonies.Dicord.Assistant.csproj" -c Release -o /app/publish
+RUN dotnet publish "MineColonies.Discord.Assistant.Main.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "MineColonies.Dicord.Assistant.dll"]
+ENTRYPOINT ["dotnet", "MineColonies.Discord.Assistant.Main.dll"]
