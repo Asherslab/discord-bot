@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Builder;
@@ -10,6 +11,8 @@ using MineColonies.Discord.Assistant.Main.Handlers;
 using MineColonies.Discord.Assistant.Main.HostServices;
 using MineColonies.Discord.Assistant.Module.AutoRole;
 using MineColonies.Discord.Assistant.Module.RoleKeep;
+using Newtonsoft.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace MineColonies.Discord.Assistant.Main
 {
@@ -33,6 +36,8 @@ namespace MineColonies.Discord.Assistant.Main
         {
             ModulesConfig modulesConfig = _configuration.GetSection("Modules").Get<ModulesConfig>();
 
+            Console.WriteLine($"Enabled Modules: {JsonSerializer.Serialize(modulesConfig.Enabled)}");
+            
             return Modules!.Where(module => modulesConfig.Enabled.Contains(module.ModuleName)).ToList();
         }
         
