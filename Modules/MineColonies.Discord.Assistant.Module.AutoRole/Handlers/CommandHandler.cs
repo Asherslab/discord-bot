@@ -7,7 +7,7 @@ namespace MineColonies.Discord.Assistant.Module.AutoRole.Handlers
 {
     public class CommandHandler : BaseCommandHandler
     {
-        public CommandHandler(DiscordSocketClient client, IServiceProvider provider) : base(client, provider, "testing-ar!")
+        public CommandHandler(DiscordSocketClient client, IServiceProvider provider) : base(client, provider, "ar!")
         {
         }
 

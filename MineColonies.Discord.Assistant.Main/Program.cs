@@ -1,14 +1,46 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Discord;
+using Discord.Addons.Hosting;
+using Discord.Commands;
 using Discord.WebSocket;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace MineColonies.Discord.Assistant.Main
 {
-    internal class Program
+    internal static class Program
     {
-        public static void Main()
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(x =>
+                {
+                    // We will use the environment variable DISQORD_TOKEN for the bot token.
+                    x.AddEnvironmentVariables("ASSISTANT_");
+                })
+                .ConfigureDiscordHost((ctx, config) =>
+                {
+                    config.SocketConfig = new DiscordSocketConfig
+                    {
+                        LogLevel = LogSeverity.Verbose,
+                        AlwaysDownloadUsers = true,
+                        MessageCacheSize = 200
+                    };
+
+                    config.Token = ctx.Configuration["token"];
+                })
+                .UseCommandService((_, config) =>
+                {
+                    config.DefaultRunMode = RunMode.Async;
+                    config.CaseSensitiveCommands = false;
+                })
+                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+
+        /*public static void Main()
             => new Program().MainAsync().GetAwaiter().GetResult();
 
         private readonly IServiceCollection _serviceCollection = new ServiceCollection();
@@ -25,6 +57,6 @@ namespace MineColonies.Discord.Assistant.Main
             await client.StartAsync();
 
             await Task.Delay(Timeout.Infinite);
-        }
+        }*/
     }
 }

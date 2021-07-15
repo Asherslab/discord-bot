@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using MineColonies.Discord.Assistant.Interfaces.Extensions;
 using MineColonies.Discord.Assistant.Interfaces.Interfaces;
@@ -11,7 +10,7 @@ namespace MineColonies.Discord.Assistant.Module.RoleKeep
     {
         public string ModuleName => "role-keep";
 
-        public Task ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             services.AddCommandHandler<CommandHandler>();
             services.AddEventHandler<EventsHandler>();
@@ -21,8 +20,6 @@ namespace MineColonies.Discord.Assistant.Module.RoleKeep
             services.AddSingleton<RolesKeptCommand>();
             
             services.AddSingleton(Config.Load());
-
-            return Task.CompletedTask;
         }
     }
 }

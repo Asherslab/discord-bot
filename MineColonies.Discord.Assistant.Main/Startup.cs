@@ -1,70 +1,56 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Discord;
-using Discord.WebSocket;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using MineColonies.Discord.Assistant.Interfaces.Interfaces;
-using MineColonies.Discord.Assistant.Main.Extensions;
+using MineColonies.Discord.Assistant.Main.Configuration;
 using MineColonies.Discord.Assistant.Main.Handlers;
-using MineColonies.Discord.Assistant.Main.Utils;
+using MineColonies.Discord.Assistant.Main.HostServices;
 using MineColonies.Discord.Assistant.Module.AutoRole;
 using MineColonies.Discord.Assistant.Module.RoleKeep;
 
 namespace MineColonies.Discord.Assistant.Main
 {
-    public static class Startup
+    public class Startup
     {
-        private static List<IModuleStartup>? _modules = new()
+        //TODO: switch to auto discovery
+        private static readonly List<IModuleStartup>? Modules = new()
         {
             new AutoRoleModuleStartup(),
             new RoleKeepModuleStartup()
         };
+
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        private readonly IConfiguration _configuration;
+
+        private IEnumerable<IModuleStartup> GetModules()
+        {
+            ModulesConfig modulesConfig = _configuration.GetSection("Modules").Get<ModulesConfig>();
+
+            return Modules!.Where(module => modulesConfig.Enabled.Contains(module.ModuleName)).ToList();
+        }
         
-        private static readonly List<IModuleStartup> EnabledModules = new();
-
-        public static void ConfigureModules(List<string> enabledModules)
+        public void ConfigureServices(IServiceCollection services)
         {
-            foreach (IModuleStartup module in _modules!.Where(module => enabledModules.Contains(module.ModuleName)))
-            {
-                EnabledModules.Add(module);
-            }
-
-            _modules = null;
-        }
-
-        public static async Task ConfigureClient(ServiceProvider provider, DiscordSocketClient client)
-        {
-            client.Log += Logging.Log;
-
-            string? token = Environment.GetEnvironmentVariable("DISCORD_KEY");
-
-            await client.LoginAsync(TokenType.Bot, token);
-
-            foreach (ICommandHandler commandHandler in provider.GetServices<ICommandHandler>())
-            {
-                await commandHandler.InitializeAsync();
-                client.MessageReceived += commandHandler.HandleCommandAsync;
-            }
-
-            provider.GetRequiredService<EventHandlerWrapper>().RegisterEvents(client);
-
-            foreach (IModuleStartup moduleStartup in EnabledModules)
-            {
-                await moduleStartup.ConfigureClient(client);
-            }
-        }
-
-        public static async Task ConfigureServices(IServiceCollection services)
-        {
-            services.AddSingleton<DiscordSocketClient>();
             services.AddSingleton<EventHandlerWrapper>();
 
-            foreach (IModuleStartup moduleStartup in EnabledModules)
+            services.AddHostedService<ConfigureCommandHandlers>();
+            services.AddHostedService<ConfigureEventHandlerWrapper>();
+
+            foreach (IModuleStartup moduleStartup in GetModules())
             {
-                await moduleStartup.ConfigureServices(services);
+                moduleStartup.ConfigureServices(services);
             }
+        }
+
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
         }
     }
 }

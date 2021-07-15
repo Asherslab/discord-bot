@@ -7,7 +7,7 @@ namespace MineColonies.Discord.Assistant.Module.RoleKeep.Handlers
 {
     public class CommandHandler : BaseCommandHandler
     {
-        public CommandHandler(DiscordSocketClient client, IServiceProvider provider) : base(client, provider, "testing-rk!")
+        public CommandHandler(DiscordSocketClient client, IServiceProvider provider) : base(client, provider, "rk!")
         {
         }
 

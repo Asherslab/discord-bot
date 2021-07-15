@@ -9,7 +9,6 @@ using Remora.Discord.API.Objects;
 using Remora.Discord.Commands.Contexts;
 using Remora.Discord.Core;
 using Remora.Results;
-using IComponent = Remora.Discord.API.Abstractions.Objects.IComponent;
 
 namespace MineColonies.Discord.Assistant.Remora.Commands
 {

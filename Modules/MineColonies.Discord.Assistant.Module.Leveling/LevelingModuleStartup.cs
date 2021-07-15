@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MineColonies.Discord.Assistant.Interfaces.Interfaces;
@@ -10,7 +9,7 @@ namespace MineColonies.Discord.Assistant.Module.Leveling
     {
         public string ModuleName => "leveling-module";
 
-        public Task ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             /*services.AddCommandHandler<CommandHandler>();
             services.AddEventHandler<EventsHandler>();
@@ -26,8 +25,6 @@ namespace MineColonies.Discord.Assistant.Module.Leveling
             });
 
             services.AddSingleton(Config.Load());
-
-            return Task.CompletedTask;
         }
     }
 }
