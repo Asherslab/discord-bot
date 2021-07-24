@@ -20,6 +20,7 @@ namespace MineColonies.Discord.Assistant.Main.HostServices
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            Client.Ready += _handler.Ready;
             await Client.WaitForReadyAsync(stoppingToken);
             
             Client.UserJoined += _handler.UserJoined;

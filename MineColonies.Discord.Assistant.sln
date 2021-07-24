@@ -18,6 +18,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Remora", "MineColonies.Discord.Assistant.Remora\MineColonies.Discord.Assistant.Remora.csproj", "{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MineColonies.Discord.Assistant.Module.LDTTeamAuth", "Modules\MineColonies.Discord.Assistant.Module.LDTTeamAuth\MineColonies.Discord.Assistant.Module.LDTTeamAuth.csproj", "{2CD1B351-A779-4D07-B352-F686F2476F61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,10 +58,15 @@ Global
 		{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B112F1D6-EA9A-4027-8FED-3D9EAFE61742}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD1B351-A779-4D07-B352-F686F2476F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD1B351-A779-4D07-B352-F686F2476F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD1B351-A779-4D07-B352-F686F2476F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD1B351-A779-4D07-B352-F686F2476F61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C335B0B7-447F-4B17-999D-BF8359F2FDC1} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
 		{31D42586-2F7F-4B49-8AAA-6E233E56BD23} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
 		{EDECCDF2-F551-45CA-88C9-5D9D68B7AB96} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
+		{2CD1B351-A779-4D07-B352-F686F2476F61} = {D1196CBB-3AF2-41A7-B06D-A4155D3BC3F3}
 	EndGlobalSection
 EndGlobal

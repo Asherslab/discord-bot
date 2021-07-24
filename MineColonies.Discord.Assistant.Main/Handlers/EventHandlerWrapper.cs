@@ -55,5 +55,18 @@ namespace MineColonies.Discord.Assistant.Main.Handlers
             
             return Task.CompletedTask;
         }
+
+        public Task Ready()
+        {
+            using IServiceScope scope = _provider.CreateScope();
+            
+            foreach (IEventHandler eventHandler in scope.ServiceProvider.GetServices<IEventHandler>())
+            {
+                if (eventHandler is IReadyHandler handler)
+                    new Thread(async () => await handler.Ready()).Start();
+            }
+
+            return Task.CompletedTask;
+        }
     }
 }

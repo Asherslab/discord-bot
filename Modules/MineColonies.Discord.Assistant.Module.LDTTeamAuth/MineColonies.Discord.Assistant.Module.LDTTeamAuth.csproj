@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <ProjectReference Include="..\..\MineColonies.Discord.Assistant.BaseClasses\MineColonies.Discord.Assistant.BaseClasses.csproj" />
+        <ProjectReference Include="..\..\MineColonies.Discord.Assistant.Interfaces\MineColonies.Discord.Assistant.Interfaces.csproj" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+      <PackageReference Include="RabbitMQ.Client" Version="6.2.2" />
+    </ItemGroup>
+
+</Project>

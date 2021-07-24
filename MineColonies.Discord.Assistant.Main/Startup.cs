@@ -10,8 +10,9 @@ using MineColonies.Discord.Assistant.Main.Configuration;
 using MineColonies.Discord.Assistant.Main.Handlers;
 using MineColonies.Discord.Assistant.Main.HostServices;
 using MineColonies.Discord.Assistant.Module.AutoRole;
+using MineColonies.Discord.Assistant.Module.LDTTeamAuth;
+using MineColonies.Discord.Assistant.Module.LDTTeamAuth.Services;
 using MineColonies.Discord.Assistant.Module.RoleKeep;
-using Newtonsoft.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace MineColonies.Discord.Assistant.Main
@@ -22,7 +23,8 @@ namespace MineColonies.Discord.Assistant.Main
         private static readonly List<IModuleStartup>? Modules = new()
         {
             new AutoRoleModuleStartup(),
-            new RoleKeepModuleStartup()
+            new RoleKeepModuleStartup(),
+            new LDTTeamAuthModuleStartup()
         };
 
         public Startup(IConfiguration configuration)
@@ -45,6 +47,7 @@ namespace MineColonies.Discord.Assistant.Main
         {
             services.AddSingleton<EventHandlerWrapper>();
 
+            services.AddHttpClient();
             services.AddHostedService<ConfigureCommandHandlers>();
             services.AddHostedService<ConfigureEventHandlerWrapper>();
 

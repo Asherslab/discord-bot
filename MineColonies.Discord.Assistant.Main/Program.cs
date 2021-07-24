@@ -38,7 +38,11 @@ namespace MineColonies.Discord.Assistant.Main
                     config.DefaultRunMode = RunMode.Async;
                     config.CaseSensitiveCommands = false;
                 })
-                .ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseUrls("http://localhost:9999");
+                    webBuilder.UseStartup<Startup>();
+                });
 
         /*public static void Main()
             => new Program().MainAsync().GetAwaiter().GetResult();
